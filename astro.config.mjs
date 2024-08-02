@@ -7,5 +7,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [react(), tailwind()],
   site: 'https://vitor-rs.github.io',
-  base: 'portfolio-vrs'
+  base: '/portfolio-vrs'
 });
