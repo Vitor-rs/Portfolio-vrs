@@ -6,6 +6,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind()],
-  site: 'https://Vitor-rs.github.io',
-  base: '/portfolio-vrs'
+  site: "https://github.com/Vitor-rs",
+  base: "/portfolio-vrs",
 });
