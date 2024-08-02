@@ -3,50 +3,55 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Portfolio Vitor Santos">
 	<main>
 
-		<h1>Welcome to Astro</h1>
-		<p>
-			Welcome to Astro, a new kind of static site builder. Astro combines the best parts of modern build tools, like React and ES modules, and the best parts of static site builders, like Eleventy and Jekyll. Astro sites are built ahead of time and served as static HTML, but you can use React for dynamic parts of your site.
-		</p>
+		<h1>Portfolio Vitor Santos</h1>
+		<p>Olá, eu sou o Vitor Santos, sou um apaixonado por tecnologia e automatizar o trabalho é meu hobby</p>
 
-		<h2>Get Started</h2>
-		<p>
-			To get started with Astro, check out the <a href="https://docs.astro.build/getting-started">Getting Started</a> guide. You can also check out the <a href="https://docs.astro.build/core-concepts">Core Concepts</a> guide to learn more about how Astro works.
-		</p>
+		<h2>Projetos</h2>
 
-		<h2>Features</h2>
-		<ul>
-			<Card title="React" body="Use React for dynamic parts of your site." href="https://reactjs.org/" />
-			<Card title="ES Modules" body="Use modern JavaScript with ES modules." href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" />
-			<Card title="Static Site" body="Astro sites are built ahead of time and served as static HTML." href="https://docs.astro.build/core-concepts" />
-		</ul>
+		<Card title='Projeto 1' body='Descrição do projeto 1' href='#'>
+			<p>Este é um parágrafo extra para o projeto 1</p>
+		</Card>
 
-		<h2>Community</h2>
-		<p>
-			Join the Astro community on <a href="https://discord.gg/astro">Discord</a> to chat with other Astro users and contributors.
-		</p>
+		<Card title='Projeto 2' body='Descrição do projeto 2' href='#'>
+			<p>Este é um parágrafo extra para o projeto 2</p>
+		</Card>
 
-		<h2>Contributing</h2>
-		<p>
-			To contribute to Astro, check out the <a href="#">Contributing</a> guide.
-		</p>
+		<Card title='Projeto 3' body='Descrição do projeto 3' href='#'>
+			<p>Este é um parágrafo extra para o projeto 3</p>
+		</Card>
 
-		<Card title="GitHub" body="Check out the Astro source code on GitHub." href="#" />
+		<h2>Contato</h2>
+
 		
 	</main>
 </Layout>
 
 <style>
+
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
+
+	h1 {
+		margin: 0;
+		color: aliceblue;
+	}
+
+	h2 {
+		margin: 2rem 0 1rem;
+		color: aliceblue;
+	}
+
+	p {
+		margin: 0;
+		color: aliceblue;
+	}
+
+
 	
 </style>
