@@ -1,53 +1,54 @@
 ---
+import { motion } from 'framer-motion';
+
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
 ---
 
+<motion.div animate={{ x: 100 }} />
 <li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
+  <a href={href}>
+    <h2>
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p>
+      {body}
+    </p>
+  </a>
 </li>
 <style>
+  .link-card {
+    background: #333;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
 
-	.link-card {
-		background: #333;
-		border-radius: 0.5rem;
-		margin: 1rem 0;
-		padding: 1rem;
-	}
+  .link-card h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
 
-	.link-card h2 {
-		font-size: 1.5rem;
-		margin: 0;
-	}
+  .link-card h2 span {
+    float: right;
+  }
 
-	.link-card h2 span {
-		float: right;
-	}
+  .link-card p {
+    margin: 0;
+  }
 
-	.link-card p {
-		margin: 0;
-	}
+  .link-card a {
+    color: white;
+    text-decoration: none;
+  }
 
-	.link-card a {
-		color: white;
-		text-decoration: none;
-	}
-
-	.link-card a:hover {
-		text-decoration: underline;
-	}
-
+  .link-card a:hover {
+    text-decoration: underline;
+  }
 </style>
