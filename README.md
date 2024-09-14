@@ -5,11 +5,11 @@ Este é o meu portfólio, onde você pode encontrar alguns dos meus projetos e t
 ## Tecnologias usadas neste projeto
 
 - **Astro** (https://astro.build/)
-  - Astro é um novo tipo de framework para construir sites modernos e performáticos, sem comprometer a experiência de desenvolvimento.
+    - Astro é um novo tipo de framework para construir sites modernos e performáticos, sem comprometer a experiência de desenvolvimento.
 - **TailwindCSS** (https://tailwindcss.com/)
-  - Tailwind CSS é um framework CSS de utilidade de baixo nível para criar designs personalizados e responsivos.
+    - Tailwind CSS é um framework CSS de utilidade de baixo nível para criar designs personalizados e responsivos.
 - **React** (https://reactjs.org/)
-  - React é uma biblioteca JavaScript para criar interfaces de usuário.
+    - React é uma biblioteca JavaScript para criar interfaces de usuário.
 
 ## Como rodar o projeto
 
