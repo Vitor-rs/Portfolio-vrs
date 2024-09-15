@@ -1,0 +1,15 @@
+---
+import { fetchRepos } from '../scripts/fetchRepos.js';
+import Card from './Card.astro';
+
+const repos = await fetchRepos();
+---
+
+<section id="projects" class="mt-16 xl:mt-24 px-8 md:px-12 xl:px-28">
+  <h2 class="text-4xl font-bold mb-8">Projetos</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {repos.map(repo => (
+      <Card key={repo.id} name={repo.name} technologies={repo.topics} />
+    ))}
+  </div>
+</section>
