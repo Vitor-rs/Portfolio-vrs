@@ -1,28 +1,33 @@
 ---
 interface Props {
-    name: string;
-    technologies: string[];
+  name: string;
+  technologies: string[];
+  url: string;
 }
 
-const {name, technologies} = Astro.props;
+const { name, technologies, url } = Astro.props;
 ---
 
-<div class="project-card p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-    <h3 class="text-2xl mb-2">{name}</h3>
-    <ul class="list-disc pl-5">
-        {technologies.map(tech => (
-                <li>{tech}</li>
-        ))}
-    </ul>
+<div class="card bg-semi-transparent hover:transform hover:-translate-y-2 transition-all duration-500">
+  <a href={url} target="_blank" class="
+    text-xl
+    font-bold
+    hover:underline
+    hover:text-cyan-400
+    transition-all
+    duration-500
+    ">{name}</a>
+  <ul>
+    {technologies.map((tech) => (
+      <li>{tech}</li>
+    ))}
+  </ul>
 </div>
 
 <style>
-    /* src/styles/global.css */
-    .project-card {
-        transition: transform 0.2s;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
+  .bg-semi-transparent {
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta semi-transparente */
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
 </style>

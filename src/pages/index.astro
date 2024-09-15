@@ -2,27 +2,52 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Projects from '../components/Projects.astro';
+import Technologies from '../components/Technologies.astro';
+import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout title="Portfolio Vitor Santos">
     <Header/>
     <main class="mt-16 xl:mt-24 px-8 md:px-12 xl:px-28 flex flex-col gap-16 xl:flex-row-reverse xl:items-center">
-        <img src="pf1.png" alt="" class="mx-auto xl:w-full" />
+        <img src="pf1.png" alt="" class="mx-auto xl:w-full"/>
         <div class="flex flex-col gap-8 items-center xl:items-start text-center xl:text-left">
             <h1 class="text-4xl xl:text-5xl font-bold">
-                Tudo o que precisar, estou à disposição.
+                Um entusiasta de tecnologia, automação e inovação.
                 <span class="text-cyan-600 dark:text-cyan-400">Hoje</span>
             </h1>
             <p class="md:text-xl">
-                loren ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat
-                nulla pariatur.
+                A tecnologia é uma ferramenta poderosa que pode ser usada para resolver problemas complexos e criar soluções inovadoras. Embarque comigo nessa jornada e vamos juntos criar soluções incríveis.
             </p>
-
         </div>
     </main>
+    <hr class="
+        mx-8
+        md:mx-12
+        xl:mx-28
+        border-t-2
+        border-gray-300
+        dark:border-gray-700
+        my-8
+    "/>
     <Projects/>
+    <hr class="
+        mx-8
+        md:mx-12
+        xl:mx-28
+        border-t-2
+        border-gray-300
+        dark:border-gray-700
+        my-8
+    "/>
+    <Technologies />
+    <hr class="
+        mx-8
+        md:mx-12
+        xl:mx-28
+        border-t-2
+        border-gray-300
+        dark:border-gray-700
+        my-8
+    "/>
+    <AboutMe />
 </Layout>

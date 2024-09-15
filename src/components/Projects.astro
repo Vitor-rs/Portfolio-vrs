@@ -6,6 +6,7 @@ interface Repo {
   id: string;
   name: string;
   topics: string[];
+  html_url: string;
 }
 
 const repos: Repo[] = await fetchRepos();
@@ -21,15 +22,12 @@ const repos: Repo[] = await fetchRepos();
             flex
             flex-col
             gap-16
-            hover:transform
-            hover:-translate-y-2
-
 
          ">
   <h2 class="text-4xl font-bold mb-8">Projetos</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     {repos.map((repo: Repo) => (
-      <Card name={repo.name} technologies={repo.topics} />
+      <Card name={repo.name} technologies={repo.topics} url={repo.html_url} />
     ))}
   </div>
 </section>
