@@ -4,50 +4,151 @@ import Header from '../components/Header.astro';
 import Projects from '../components/Projects.astro';
 import Technologies from '../components/Technologies.astro';
 import AboutMe from '../components/AboutMe.astro';
+import Contact from '../components/Contact.astro';
 ---
-
 <Layout title="Portfolio Vitor Santos">
     <Header/>
-    <main class="mt-16 xl:mt-24 px-8 md:px-12 xl:px-28 flex flex-col gap-16 xl:flex-row-reverse xl:items-center">
-        <img src="pf1.png" alt="" class="mx-auto xl:w-full"/>
-        <div class="flex flex-col gap-8 items-center xl:items-start text-center xl:text-left">
-            <h1 class="text-4xl xl:text-5xl font-bold">
-                Um entusiasta de tecnologia, automação e inovação.
-                <span class="text-cyan-600 dark:text-cyan-400">Hoje</span>
-            </h1>
-            <p class="md:text-xl">
-                A tecnologia é uma ferramenta poderosa que pode ser usada para resolver problemas complexos e criar soluções inovadoras. Embarque comigo nessa jornada e vamos juntos criar soluções incríveis.
-            </p>
+    <main class="mt-16 xl:mt-24 px-8 md:px-12 xl:px-28 min-h-screen flex flex-col justify-center">
+        <div class="flex flex-col xl:flex-row-reverse items-center gap-16">
+            <div class="w-full xl:w-1/2 relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-20 blur-xl"></div>
+                <img src="pf1.png" alt="" class="relative z-10 mx-auto w-full max-w-md xl:max-w-full rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"/>
+            </div>
+            <div class="w-full xl:w-1/2 flex flex-col gap-8 items-center xl:items-start text-center xl:text-left">
+                <h1 class="text-4xl xl:text-6xl font-bold leading-tight">
+                    <span class="block overflow-hidden">
+                        <span class="block transform transition-transform duration-1000 translate-y-full animate-title">Um entusiasta de</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="block transform transition-transform duration-1000 translate-y-full animate-title" style="animation-delay: 0.1s;">tecnologia, automação</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="block transform transition-transform duration-1000 translate-y-full animate-title" style="animation-delay: 0.2s;">e inovação.</span>
+                    </span>
+                </h1>
+                <p class="md:text-xl max-w-2xl opacity-0 animate-fade-in" style="animation-delay: 0.5s;">
+                    A tecnologia é uma ferramenta poderosa que pode ser usada para resolver problemas complexos e criar
+                    soluções inovadoras. Embarque comigo nessa jornada e vamos juntos criar soluções incríveis.
+                </p>
+                <a href="#about-me" class="smooth-scroll mt-8 px-8 py-3 bg-primary text-white rounded-full font-semibold transition-all duration-300 hover:bg-secondary hover:shadow-lg transform hover:-translate-y-1 opacity-0 animate-fade-in" style="animation-delay: 0.7s;">
+                    Conheça-me melhor
+                </a>
+            </div>
         </div>
     </main>
-    <hr class="
-        mx-8
-        md:mx-12
-        xl:mx-28
-        border-t-2
-        border-gray-300
-        dark:border-gray-700
-        my-8
-    "/>
-    <Projects/>
-    <hr class="
-        mx-8
-        md:mx-12
-        xl:mx-28
-        border-t-2
-        border-gray-300
-        dark:border-gray-700
-        my-8
-    "/>
-    <Technologies />
-    <hr class="
-        mx-8
-        md:mx-12
-        xl:mx-28
-        border-t-2
-        border-gray-300
-        dark:border-gray-700
-        my-8
-    "/>
-    <AboutMe />
+    <hr class="mx-8 md:mx-12 xl:mx-28 border-t-2 border-gray-300 dark:border-gray-700 my-8"/>
+    <div id="about-me">
+        <AboutMe/>
+    </div>
+    <hr class="mx-8 md:mx-12 xl:mx-28 border-t-2 border-gray-300 dark:border-gray-700 my-8"/>
+    <div id="technologies">
+        <Technologies/>
+    </div>
+    <hr class="mx-8 md:mx-12 xl:mx-28 border-t-2 border-gray-300 dark:border-gray-700 my-8"/>
+    <div id="projects">
+        <Projects/>
+    </div>
+    <hr class="mx-8 md:mx-12 xl:mx-28 border-t-2 border-gray-300 dark:border-gray-700 my-8"/>
+    <div id="contact">
+        <Contact/>
+    </div>
 </Layout>
+
+<style>
+    @keyframes slideUp {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .animate-title {
+        animation: slideUp 1s ease-out forwards;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+    }
+</style>
+
+<script>
+    function isElementInViewport(el: Element): boolean {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleScroll() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach((el) => {
+            if (isElementInViewport(el)) {
+                el.classList.add('animate');
+            }
+        });
+    }
+
+    function smoothScroll(e: Event) {
+        e.preventDefault();
+        const link = e.currentTarget;
+        if (link instanceof HTMLAnchorElement) {
+            const targetId = link.getAttribute('href');
+            if (targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement instanceof HTMLElement) {
+                    const headerOffset = 100; // Ajuste conforme necessário
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Adiciona uma classe para animar a seção alvo
+                    targetElement.classList.add('highlight-section');
+                    setTimeout(() => {
+                        targetElement.classList.remove('highlight-section');
+                    }, 1500);
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        handleScroll();
+
+        const smoothScrollLinks = document.querySelectorAll('.smooth-scroll');
+        smoothScrollLinks.forEach(link => {
+            link.addEventListener('click', smoothScroll);
+        });
+    });
+
+    window.addEventListener('scroll', handleScroll);
+</script>
+
+<style>
+    @keyframes highlightPulse {
+        0% { box-shadow: 0 0 0 0 rgba(255, 46, 99, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(255, 46, 99, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(255, 46, 99, 0); }
+    }
+
+    .highlight-section {
+        animation: highlightPulse 1.5s ease-out;
+    }
+</style>

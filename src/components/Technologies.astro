@@ -1,19 +1,18 @@
 ---
 const technologies = [
-    { name: "Excel", img: "src/img/java.png" },
-    { name: "Power BI", img: "src/img/Power-Bi.png" },
-    { name: "Python", img: "src/img/python.png" },
-    { name: "SQL", img: "src/img/sql-server.png" },
-    { name: "Java", img: "/src/img/java.png" },
-    { name: "Spring Framework", img: "src/img/toppng.com-spring-framework-logo-363x363.png" },
-    { name: "WordPress", img: "/src/img/wordpress.png" },
-    { name: "Typescript", img: "src/img/typescript.png" },
-    { name: "Markdown", img: "src/img/markdown.png" },
-    { name: "React", img: "src/img/reactLogo.png" },
-    { name: "Tailwind CSS", img: "src/img/tailwind-css-256.png" }
+    { name: "Excel", img: "src/img/office365.png", level: 9 },
+    { name: "Power BI", img: "src/img/Power-Bi.png", level: 7 },
+    { name: "Python", img: "src/img/python.png", level: 5 },
+    { name: "SQL", img: "src/img/sql-server.png", level: 7.5 },
+    { name: "Java", img: "/src/img/java.png", level: 6.5 },
+    { name: "Spring Framework", img: "src/img/toppng.com-spring-framework-logo-363x363.png", level: 4 },
+    { name: "WordPress", img: "/src/img/wordpress.png", level: 8 },
+    { name: "Typescript", img: "src/img/typescript.png", level: 5.5 },
+    { name: "Markdown", img: "src/img/markdown.png", level: 9.5 },
+    { name: "React", img: "src/img/reactLogo.png", level: 6 },
+    { name: "Tailwind CSS", img: "src/img/tailwind-css-256.png", level: 8.5 }
 ];
 ---
-
 <section id="technologies"
          class="
             px-8
@@ -22,17 +21,63 @@ const technologies = [
             flex
             flex-col
             gap-16
+            bg-dark
+            py-16
          ">
-  <h2 class="text-4xl font-bold">Tecnologias</h2>
-  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
-    {technologies.map((tech) => (
-      <li class="text-xl flex items-center gap-4 hover:transform
-            hover:-translate-y-2
-            transition-all
-            duration-500">
-        <img src={tech.img} alt={tech.name} class="w-8 h-8" />
-        {tech.name}
-      </li>
-    ))}
-  </ul>
+    <h2 class="text-4xl font-bold text-light">Tecnologias</h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {technologies.map((tech) => (
+                <li class="
+        flex
+        flex-col
+        gap-2
+        hover:transform
+        hover:-translate-y-2
+        transition-all
+        duration-500
+        bg-dark
+        p-4
+        rounded-lg
+        border
+        border-light
+        border-opacity-20
+        hover:border-opacity-50
+      ">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <img src={tech.img} alt={tech.name} class="w-8 h-8" />
+                            <span class="text-xl text-light">{tech.name}</span>
+                        </div>
+                        <span class="text-sm text-secondary font-semibold">{tech.level.toFixed(1)}/10</span>
+                    </div>
+                    <div class="w-full bg-light bg-opacity-20 rounded-full h-2.5">
+                        <div
+                                class="bg-primary h-2.5 rounded-full transition-all duration-1000 ease-out"
+                                style={`width: 0%`}
+                                data-level={tech.level * 10}
+                        ></div>
+                    </div>
+                </li>
+        ))}
+    </ul>
 </section>
+
+<style>
+    #technologies {
+        scroll-margin-top: 100px;
+    }
+</style>
+
+<script>
+    function animateBars() {
+        const bars = document.querySelectorAll('#technologies [data-level]');
+        bars.forEach((bar) => {
+            const level = bar.getAttribute('data-level');
+            setTimeout(() => {
+                (bar as HTMLElement).style.width = `${level}%`;
+            }, 200);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', animateBars);
+</script>
