@@ -2,6 +2,10 @@
 
 Este é o meu portfólio, onde você pode encontrar alguns dos meus projetos e trabalhos.
 
+## Deploy
+
+O projeto está hospedado no GitHub Pages e pode ser acessado através do link: [portfolio-vrs](https://Vitor-rs.github.io/portfolio-vrs)
+
 ## Tecnologias usadas neste projeto
 
 - **Astro** (https://astro.build/)
@@ -14,7 +18,3 @@ Este é o meu portfólio, onde você pode encontrar alguns dos meus projetos e t
 1. Clone o repositório
 2. Instale as dependências com `npm install` ou `npm i`
 3. Rode o projeto com `npm run dev` para rodar localmente em modo de desenvolvimento
-
-## Deploy
-
-O projeto está hospedado no GitHub Pages e pode ser acessado através do link: [portfolio-vrs](https://Vitor-rs.github.io/portfolio-vrs)
