@@ -12,22 +12,11 @@ interface Repo {
 const repos: Repo[] = await fetchRepos();
 ---
 
-<section id="projects"
-         class="
-            mt-16
-            xl:mt-24
-            px-8
-            md:px-12
-            xl:px-28
-            flex
-            flex-col
-            gap-16
-
-         ">
-  <h2 class="text-4xl font-bold mb-8">Projetos</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {repos.map((repo: Repo) => (
-      <Card name={repo.name} technologies={repo.topics} url={repo.html_url} />
-    ))}
-  </div>
+<section id="projects" class="mt-16 xl:mt-24 px-8 md:px-12 xl:px-28 flex flex-col gap-16">
+    <h2 class="text-4xl font-bold mb-8">Projetos</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {repos.map((repo: Repo) => (
+                <Card name={repo.name} technologies={repo.topics} url={repo.html_url} />
+        ))}
+    </div>
 </section>
