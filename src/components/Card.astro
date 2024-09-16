@@ -1,33 +1,23 @@
 ---
 interface Props {
-  name: string;
-  technologies: string[];
-  url: string;
+    name: string;
+    technologies: string[];
+    url: string;
 }
-
 const { name, technologies, url } = Astro.props;
 ---
-
-<div class="card bg-semi-transparent hover:transform hover:-translate-y-2 transition-all duration-500">
-  <a href={url} target="_blank" class="
-    text-xl
-    font-bold
-    hover:underline
-    hover:text-cyan-400
-    transition-all
-    duration-500
-    ">{name}</a>
-  <ul>
-    {technologies.map((tech) => (
-      <li>{tech}</li>
-    ))}
-  </ul>
+<div class="card bg-card/50 hover:-translate-y-2 transition-all duration-500 p-4 rounded-lg">
+    <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xl font-bold text-card-foreground hover:text-primary transition-colors duration-300"
+    >
+        {name}
+    </a>
+    <ul class="mt-2 space-y-1">
+        {technologies.map((tech) => (
+                <li class="text-sm text-muted-foreground">{tech}</li>
+        ))}
+    </ul>
 </div>
-
-<style>
-  .bg-semi-transparent {
-    background-color: rgba(0, 0, 0, 0.5); /* Cor preta semi-transparente */
-    padding: 1rem;
-    border-radius: 0.5rem;
-  }
-</style>
